@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://casa-xango-iemanja-meier.guipereira260803.chatgpt.site/sitemap.xml
