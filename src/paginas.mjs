@@ -29,11 +29,11 @@ const cardPub = (p, cls = 'card') => `<a class="${cls}" href="${href(p.slug)}">
   <span class="card__titulo">${esc(p.title)}</span>
   <span class="card__seta">${icone('seta')}</span></a>`;
 
-const ctaVisita = (titulo = 'Toda caminhada começa|com um encontro.') => `<section class="cta" data-sec="Visite">
+const ctaVisita = (titulo = 'Venha conhecer|a casa.') => `<section class="cta" data-sec="Visite">
   <div class="cta__in">${brasao('cta__brasao')}
     ${kicker('Chegue mais perto', 'kicker--claro')}
     ${linhas(titulo, 'h2', 'h2 h2--claro')}
-    <p>Para conhecer a casa, comece por uma mensagem. É por lá que a casa passa o endereço, a agenda e as orientações da primeira visita.</p>
+    <p>Envie uma mensagem pelo Instagram para receber o endereço no Méier, a data da próxima gira e as orientações para a primeira visita.</p>
     <div class="cta__botoes">${btn('Falar pelo Instagram', site.instagram, 'btn--ouro', true)}${btn('Como visitar', '/visite/', 'btn--linha')}</div>
   </div></section>`;
 
@@ -94,16 +94,16 @@ export function inicio() {
 ${marquee(['Pedra e Mar', 'Lei e Amor', 'Axé, caridade e luz', 'Méier · Rio de Janeiro'])}
 
 <section class="sec intro" id="s2" data-sec="A casa">
-  <div class="intro__cabeca">${kicker('01 · A casa')}${linhas('Fé de portas|abertas.')}<span class="seta-lateral">${icone('seta-v')}</span></div>
+  <div class="intro__cabeca">${kicker('01 · A casa')}${linhas('Um terreiro de|Umbanda no Méier.')}<span class="seta-lateral">${icone('seta-v')}</span></div>
   <div class="intro__corpo">
-    <p class="lead" data-words>A Casa de Umbanda de Xangô e Iemanjá nasceu de um chamado: viver a fé com simplicidade, carinho e disciplina amorosa. Um chão de acolhimento, aprendizado e responsabilidade, onde cada pessoa é recebida pelo nome e pela história que traz.</p>
+    <p class="lead" data-words>A Casa de Umbanda de Xangô e Iemanjá abriu seus trabalhos ao público em janeiro de 2026, no Méier, Zona Norte do Rio. A casa é dirigida pelo babalorixá pai Renato e realiza giras abertas para filhos, assistência e visitantes.</p>
     ${linkSeta('Conheça nossa história', '/a-casa/')}
   </div>
   <ul class="eixos">${eixos.map(([ic, t, d], i) => `<li class="eixo"><span class="eixo__ic">${icone(ic)}</span><em>0${i + 1}</em><h3>${t}</h3><p>${d}</p></li>`).join('')}</ul>
 </section>
 
 <section class="sec explorar" data-sec="Explore">
-  <div class="sec__cabeca">${kicker('02 · Explore')}${linhas('Explore a <em>casa</em>')}</div>
+  <div class="sec__cabeca">${kicker('02 · Explore')}${linhas('O que você <em>encontra</em> aqui')}</div>
   <div class="explorar__trilho" data-snap>${explorar.map(([t, d, h, a], i) => `<a class="explorar__card" href="${h}">
     ${img(a, '', { w: 480, sizes: '(max-width: 760px) 74vw, 20vw' })}
     <span class="explorar__num">0${i + 1}</span>
@@ -113,19 +113,19 @@ ${marquee(['Pedra e Mar', 'Lei e Amor', 'Axé, caridade e luz', 'Méier · Rio d
 </section>
 
 <section class="duo" data-sec="Pedra e Mar">
-  <div class="duo__cabeca">${kicker('03 · Pedra e Mar', 'kicker--claro')}${linhas('Duas forças.|Uma caminhada.', 'h2', 'h2 h2--claro')}<p class="duo__dica">${icone('seta')} Arraste para trocar</p></div>
+  <div class="duo__cabeca">${kicker('03 · Pedra e Mar', 'kicker--claro')}${linhas('Xangô e Iemanjá,|os nomes da casa.', 'h2', 'h2 h2--claro')}<p class="duo__dica">${icone('seta')} Arraste para trocar</p></div>
   <div class="duo__deck" data-deck>
     <article class="duo__p duo__p--xango">
       <span class="duo__ic">${icone('oxe')}</span>${kicker('Saravá, Xangô', 'kicker--claro')}
-      <h3>A firmeza<br>que sustenta.</h3>
-      <p>Fundamento, justiça, equilíbrio e força de decisão. Na nossa casa, Xangô lembra que toda construção pede base firme.</p>
+      <h3>Xangô</h3>
+      <p>Orixá da justiça, sincretizado com São João Batista. O machado de duas lâminas, seu símbolo, está no centro do brasão da casa.</p>
       ${linkSeta('Leia sobre Xangô', href('xango-justica-equilibrio-e-fundamento'))}
       <figure>${img('xango', 'Arte da casa em reverência a Xangô: justiça, força, proteção', { w: 480, sizes: '(max-width: 760px) 60vw, 22vw' })}</figure>
     </article>
     <article class="duo__p duo__p--iemanja">
       <span class="duo__ic">${icone('ondas')}</span>${kicker('Odoyá, mãe Iemanjá', 'kicker--claro')}
-      <h3>O acolhimento<br>que envolve.</h3>
-      <p>Iemanjá rege nossa casa. Sua presença se expressa no acolhimento, no amor que fortalece e na energia que nos une.</p>
+      <h3>Iemanjá</h3>
+      <p>Orixá regente da casa, celebrada em 2 de fevereiro. As ondas do brasão representam o mar de Iemanjá.</p>
       ${linkSeta('Leia sobre Iemanjá', href('iemanja-acolhimento-e-amor'))}
       <figure>${img('iemanja', 'Arte da casa: Nas águas de Iemanjá, entrego minhas dores e renovo minha fé', { w: 480, sizes: '(max-width: 760px) 60vw, 22vw' })}</figure>
     </article>
@@ -140,7 +140,7 @@ ${marquee(['Pedra e Mar', 'Lei e Amor', 'Axé, caridade e luz', 'Méier · Rio d
   ${fonte('DaJTSbcibPQ')}
 </section>
 <section class="sec reflexoes" data-sec="Reflexões">
-  <div class="sec__cabeca sec__cabeca--linha">${kicker('04 · Voz da casa')}${linhas('Leituras|para a caminhada.')}${linkSeta('Todas as reflexões', '/publicacoes/')}</div>
+  <div class="sec__cabeca sec__cabeca--linha">${kicker('04 · Voz da casa')}${linhas('Reflexões|da casa.')}${linkSeta('Todas as reflexões', '/publicacoes/')}</div>
   ${marquee(['Mediunidade', 'Acolhimento', 'Ancestralidade', 'Orixás', 'Vida no terreiro'], 'marquee--fino')}
   <div class="trilho-moldura">
   <button class="trilho__seta trilho__seta--ant" data-rail-dir="-1" aria-label="Reflexões anteriores">${icone('seta', 'vira')}</button>
@@ -151,7 +151,7 @@ ${marquee(['Pedra e Mar', 'Lei e Amor', 'Axé, caridade e luz', 'Méier · Rio d
 ${ctaVisita()}`;
   return pagina({
     caminho: '/', titulo: 'Casa de Umbanda de Xangô e Iemanjá | Terreiro no Méier, RJ',
-    descricao: 'Terreiro de Umbanda no Méier, Rio de Janeiro. Pedra e Mar, Lei e Amor: conheça a história, os fundamentos e como visitar a Casa de Umbanda de Xangô e Iemanjá.',
+    descricao: 'Terreiro de Umbanda no Méier, Rio de Janeiro, dirigido por pai Renato. Giras abertas ao público, reflexões sobre mediunidade e como fazer a primeira visita.',
     corpo, classe: 'p-inicio',
     schema: [{ '@type': 'WebSite', '@id': site.url + '/#site', url: site.url + '/', name: site.nome, inLanguage: 'pt-BR', publisher: { '@id': site.url + '/#casa' } }, org],
   });
@@ -160,22 +160,22 @@ ${ctaVisita()}`;
 /* ---------------------------------------------------------------- A CASA */
 export function aCasa() {
   const t = trilha([['A casa']]);
-  const corpo = `${phero({ trilhaHtml: t.html, kick: 'Nossa história', titulo: 'Uma casa|que nasce|do chamado.', lede: 'Do primeiro anúncio à primeira gira aberta: a caminhada da Casa de Umbanda de Xangô e Iemanjá, contada pelo que a própria casa publicou.', arte: ['altar-registro', 'Altar da casa no Méier, registrado na organização do espaço'] })}
+  const corpo = `${phero({ trilhaHtml: t.html, kick: 'Nossa história', titulo: 'Nossa|história.', lede: 'De novembro de 2025, quando a casa foi anunciada, até a primeira gira aberta, em janeiro de 2026.', arte: ['altar-registro', 'Altar da casa no Méier, registrado na organização do espaço'] })}
 
 <section class="sec origem" id="s2" data-sec="Origem">
   <div class="origem__grade">
-    <div>${kicker('01 · Como começou')}${linhas('Simplicidade,|carinho e|pé no chão.')}</div>
+    <div>${kicker('01 · Como começou')}${linhas('Como a casa|começou.')}</div>
     <div class="origem__texto">
       <p class="lead" data-words>Em novembro de 2025, a casa se apresentou ao mundo com uma frase simples: “Tá nascendo a Casa de Umbanda de Xangô e Iemanjá”.</p>
-      <p>A apresentação, assinada por Renato, falava de um espaço de cuidado, responsabilidade e afeto. Uma Umbanda vivida com disciplina amorosa, sem perder a ternura, e com os pés firmados no chão.</p>
-      <p>Xangô firma a verdade e o senso de justiça. Iemanjá inspira o acolhimento. Oxalá guia a luz do caminho. Esses sentidos acompanham a casa desde a primeira palavra.</p>
+      <p>O texto, assinado por Renato, apresenta a proposta da casa: uma Umbanda praticada com simplicidade, disciplina e responsabilidade com quem chega.</p>
+      <p>A mesma apresentação cita os três orixás de referência da casa: Xangô, Iemanjá e Oxalá.</p>
       ${fonte('DQ0UG2pDHra')}
     </div>
   </div>
 </section>
 
 <section class="sec linha" data-sec="Marcos">
-  <div class="sec__cabeca">${kicker('02 · Linha do tempo')}${linhas('Cada passo,|uma semente.')}</div>
+  <div class="sec__cabeca">${kicker('02 · Linha do tempo')}${linhas('Linha|do tempo.')}</div>
   <ol class="marcos">${marcos.map(([d, tt, tx, id, a], i) => `<li class="marco">
     <span class="marco__ponto" aria-hidden="true"></span>
     <figure class="marco__img">${img(a, `Arte da casa: ${tt}`, { w: 480, sizes: '(max-width: 760px) 40vw, 18vw' })}</figure>
@@ -186,20 +186,20 @@ export function aCasa() {
 <section class="sec lideranca" data-sec="Pai Renato">
   <figure class="lideranca__foto arco">${medalhao(img('pai-renato-homenagem', 'Arte de homenagem da comunidade ao babalorixá pai Renato', { sizes: '(max-width: 760px) 86vw, 36vw' }))}</figure>
   <div class="lideranca__texto">
-    ${kicker('03 · Quem conduz')}${linhas('Pai Renato.|Escuta e|fundamento.')}
-    <p>Nas homenagens dos filhos da casa, pai Renato aparece como o babalorixá da escuta atenta, do estudo e da dedicação ao bem-estar da corrente.</p>
-    <p>Ensina o fundamento com amor e firmeza, sem transformá-lo em fardo, e respeita o tempo de cada pessoa para aprender e amadurecer.</p>
+    ${kicker('03 · Quem conduz')}${linhas('Pai Renato,|babalorixá|da casa.')}
+    <p>Pai Renato conduz as giras e o desenvolvimento dos médiuns da casa. Sua coroa de babalorixá foi celebrada em dezembro de 2025.</p>
+    <p>Na homenagem do Dia dos Pais, os filhos da casa destacam a escuta, o estudo e o cuidado com a corrente.</p>
     ${linkSeta('Leia a homenagem do Dia dos Pais', href('pai-renato-babalorixa-e-cuidado'))}
   </div>
 </section>
 
 <section class="sec declara" data-sec="Na voz da casa">
-  <div class="sec__cabeca">${kicker('04 · Na voz da casa')}${linhas('O que a casa|diz de si.')}</div>
+  <div class="sec__cabeca">${kicker('04 · Na voz da casa')}${linhas('Quem rege|a casa.')}</div>
   <ul class="declara__lista">${declaracoes.map(([tt, tx, id]) => `<li><h3>${tt}</h3><p>${tx}</p>${fonte(id)}</li>`).join('')}</ul>
 </section>
 
 <section class="sec valores" data-sec="Valores">
-  <div class="sec__cabeca">${kicker('05 · Valores')}${linhas('Firmeza para caminhar.|Acolhimento para pertencer.')}</div>
+  <div class="sec__cabeca">${kicker('05 · Valores')}${linhas('Valores|da casa.')}</div>
   <ul class="eixos">${eixos.map(([ic, tt, d], i) => `<li class="eixo"><span class="eixo__ic">${icone(ic)}</span><em>0${i + 1}</em><h3>${tt}</h3><p>${d}</p></li>`).join('')}</ul>
 </section>
 ${ctaVisita()}`;
@@ -218,40 +218,40 @@ export function fundamentos() {
   const grade = lista => `<div class="mosaico${lista.length % 3 === 0 ? ' mosaico--3' : ''}">${lista.map((p, i) => `<a class="mosaico__item" href="${href(p.slug)}" style="--i:${i}">
     ${img(p.image, `Arte da casa: ${p.title}`, { w: 480, sizes: '(max-width: 760px) 46vw, 22vw' })}
     <span class="mosaico__txt"><small>${dataBR(p.data)}</small><b>${esc(p.title.split(':')[0])}</b></span><span class="mosaico__seta">${icone('seta')}</span></a>`).join('')}</div>`;
-  const corpo = `${phero({ trilhaHtml: t.html, kick: 'Fundamentos', titulo: 'Pedra e Mar,|Lei e Amor.', lede: 'As forças que dão nome à casa e as homenagens que ela publica ao longo do ano. Os fundamentos de cada gira são ensinados dentro do terreiro, por quem conduz a casa.' })}
+  const corpo = `${phero({ trilhaHtml: t.html, kick: 'Fundamentos', titulo: 'Fundamentos|da casa.', lede: 'Orixás, caboclos, pretos-velhos e as demais linhas homenageadas pela casa, com a data de cada celebração.' })}
 
 <section class="duo duo--pagina" id="s2" data-sec="Xangô e Iemanjá">
-  <div class="duo__cabeca">${kicker('01 · O nome da casa', 'kicker--claro')}${linhas('Xangô firma.|Iemanjá acolhe.', 'h2', 'h2 h2--claro')}<p class="duo__dica">${icone('seta')} Arraste para trocar</p></div>
+  <div class="duo__cabeca">${kicker('01 · O nome da casa', 'kicker--claro')}${linhas('Xangô|e Iemanjá.', 'h2', 'h2 h2--claro')}<p class="duo__dica">${icone('seta')} Arraste para trocar</p></div>
   <div class="duo__deck" data-deck>
     <article class="duo__p duo__p--xango"><span class="duo__ic">${icone('oxe')}</span>${kicker('Pedra e lei', 'kicker--claro')}<h3>Xangô</h3>
-      <p>Fundamento, justiça, equilíbrio e força de decisão. A casa recorda também seu sincretismo com São João Batista, memória de resistência das tradições africanas no Brasil.</p>
+      <p>Orixá da justiça, sincretizado com São João Batista e celebrado em junho. O machado de duas lâminas está no centro do brasão da casa.</p>
       ${linkSeta('Ler a reflexão', href('xango-justica-equilibrio-e-fundamento'))}<figure>${img('xango', 'Arte da casa: Xangô', { w: 480 })}</figure></article>
     <article class="duo__p duo__p--iemanja"><span class="duo__ic">${icone('ondas')}</span>${kicker('Mar e amor', 'kicker--claro')}<h3>Iemanjá</h3>
-      <p>A casa se declara regida por Iemanjá. Reverenciá-la é cultivar uma fé capaz de escutar, amparar e respeitar a história de quem chega.</p>
+      <p>Orixá regente da casa, ligada ao mar e à maternidade. Celebrada em 2 de fevereiro.</p>
       ${linkSeta('Ler a reflexão', href('iemanja-acolhimento-e-amor'))}<figure>${img('iemanja', 'Arte da casa: Iemanjá', { w: 480 })}</figure></article>
   </div>
 </section>
 
 <section class="sec" data-sec="Orixás">
-  <div class="sec__cabeca sec__cabeca--linha">${kicker('02 · Orixás')}${linhas('Os orixás|saudados pela casa.')}<p class="sec__nota">Homenagens publicadas no calendário da casa.</p></div>
+  <div class="sec__cabeca sec__cabeca--linha">${kicker('02 · Orixás')}${linhas('Orixás|homenageados.')}<p class="sec__nota">Homenagens publicadas no calendário da casa.</p></div>
   ${grade(orixas)}
 </section>
 
 <section class="sec sec--papel" data-sec="Linhas">
-  <div class="sec__cabeca sec__cabeca--linha">${kicker('03 · Linhas e devoções')}${linhas('Caboclos, pretos-velhos|e quem mais chega.')}<p class="sec__nota">Saudações públicas da casa. Não são uma lista das linhas de trabalho.</p></div>
+  <div class="sec__cabeca sec__cabeca--linha">${kicker('03 · Linhas e devoções')}${linhas('Linhas e|devoções.')}<p class="sec__nota">Saudações públicas da casa. Não são uma lista das linhas de trabalho.</p></div>
   ${grade(linhasCasa)}
 </section>
 
 <section class="sec fundo-nota" data-sec="Aprender">
   <div class="fundo-nota__in">${icone('vela', 'fundo-nota__ic')}
-    ${linhas('O fundamento se|aprende no chão.')}
-    <p>Estes textos apresentam o que a casa compartilha publicamente. Para aprofundar, o caminho é a convivência no terreiro, com a orientação de pai Renato e da corrente.</p>
+    ${linhas('Para saber|mais.')}
+    <p>Os fundamentos de cada linha são ensinados no terreiro, por pai Renato. Para participar, comece pela página de visita.</p>
     ${btn('Como visitar', '/visite/', 'btn--vinho')}
   </div>
 </section>`;
   return pagina({
-    caminho: '/fundamentos/', titulo: 'Fundamentos: Xangô, Iemanjá e as homenagens da casa | CUXI',
-    descricao: 'Pedra e Mar, Lei e Amor: Xangô, Iemanjá, orixás, caboclos, pretos-velhos e as devoções saudadas pela Casa de Umbanda de Xangô e Iemanjá, no Méier.',
+    caminho: '/fundamentos/', titulo: 'Orixás e linhas da Umbanda | Casa de Xangô e Iemanjá, Méier',
+    descricao: 'Xangô, Iemanjá, Oxóssi, Ogum, Oxum, Iansã, Nanã, Omulu, caboclos, pretos-velhos e boiadeiros: as linhas homenageadas pela Casa de Umbanda de Xangô e Iemanjá.',
     corpo, schema: [t.ld, { '@type': 'CollectionPage', name: 'Fundamentos', url: site.url + '/fundamentos/' }],
   });
 }
@@ -260,7 +260,7 @@ export function fundamentos() {
 export function reflexoes() {
   const t = trilha([['Reflexões']]);
   const cats = [...new Set(publicacoes.map(p => p.category))];
-  const corpo = `${phero({ trilhaHtml: t.html, kick: 'Voz da casa', titulo: 'Palavras que|fazem caminho.', lede: 'Reflexões, homenagens e posicionamentos da casa, reescritos a partir das publicações do Instagram para ler com calma.' })}
+  const corpo = `${phero({ trilhaHtml: t.html, kick: 'Voz da casa', titulo: 'Reflexões.', lede: 'Reflexões, homenagens e posicionamentos da casa sobre mediunidade, acolhimento, ancestralidade e vida no terreiro.' })}
 <section class="sec" id="s2" data-sec="Reflexões">
   <div class="filtros" role="group" aria-label="Filtrar por tema"><button class="is-on" data-f="todos">Todos <em>${publicacoes.length}</em></button>${cats.map(c => `<button data-f="${c}">${c} <em>${publicacoes.filter(p => p.category === c).length}</em></button>`).join('')}</div>
   <div class="lista" id="lista">${porData.map(p => `<a class="lista__item" data-c="${p.category}" href="${href(p.slug)}">
@@ -312,7 +312,7 @@ ${rel.length ? `<section class="sec sec--papel" data-sec="Leia também"><div cla
 export function acervoPag() {
   const t = trilha([['Acervo']]);
   const temas = [...new Set(acervo.map(a => a.tema))];
-  const corpo = `${phero({ trilhaHtml: t.html, kick: 'Acervo do Instagram', titulo: 'Trinta artes,|uma caminhada.', lede: `Todo o feed de ${site.arroba}, repaginado em vinho e creme. Toque em uma arte para ver em tela cheia.` })}
+  const corpo = `${phero({ trilhaHtml: t.html, kick: 'Acervo do Instagram', titulo: 'Nossas|publicações.', lede: `Orixás, linhas, datas e momentos da casa, como publicados em ${site.arroba}. Toque em uma publicação para ampliar.` })}
 <section class="sec acervo" id="s2" data-sec="Feed">
   <div class="perfil">
     <span class="avatar avatar--g"><img src="/assets/img/marca/brasao-192.webp" width="96" height="96" alt="Brasão CUXI, foto do perfil da casa no Instagram"></span>
@@ -334,8 +334,8 @@ export function acervoPag() {
 </div>
 <script type="application/json" id="acervoDados">${JSON.stringify(acervo.map(a => ({ s: `/assets/img/artes/${a.img}-960.webp`, t: a.titulo, d: dataBR(a.data), u: post(a.id) })))}</script>`;
   return pagina({
-    caminho: '/acervo/', titulo: 'Acervo: as artes do Instagram da casa | Casa de Umbanda de Xangô e Iemanjá',
-    descricao: 'As 30 publicações do Instagram da Casa de Umbanda de Xangô e Iemanjá, repaginadas: orixás, linhas, datas, reflexões e registros da casa no Méier.',
+    caminho: '/acervo/', titulo: 'Acervo: publicações da casa | Casa de Umbanda de Xangô e Iemanjá',
+    descricao: 'As publicações da Casa de Umbanda de Xangô e Iemanjá: orixás, linhas, datas, reflexões e registros da casa no Méier.',
     corpo, schema: [t.ld, { '@type': 'ImageGallery', name: 'Acervo do Instagram', url: site.url + '/acervo/', image: acervo.map(a => ({ '@type': 'ImageObject', contentUrl: site.url + `/assets/img/artes/${a.img}-960.webp`, name: a.titulo, uploadDate: a.data })) }],
   });
 }
@@ -348,9 +348,9 @@ export function visite() {
     ['pin', 'Receba as orientações', 'A casa informa o endereço no Méier, o dia da gira e o que você precisa saber.'],
     ['vela', 'Chegue com calma', 'Chegue com antecedência, com respeito ao espaço e ao tempo da gira.'],
   ];
-  const corpo = `${phero({ trilhaHtml: t.html, kick: 'Como visitar', titulo: 'Sua primeira|visita, com|tranquilidade.', lede: 'Se você nunca foi a um terreiro ou quer conhecer a nossa casa, este é o caminho.', arte: ['vela-registro', 'Vela acesa no altar da casa'] })}
+  const corpo = `${phero({ trilhaHtml: t.html, kick: 'Como visitar', titulo: 'Sua primeira|visita.', lede: 'A casa fica no Méier, no Rio de Janeiro. O endereço e a agenda das giras são enviados por mensagem no Instagram.', arte: ['vela-registro', 'Vela acesa no altar da casa'] })}
 <section class="sec passos" id="s2" data-sec="Passo a passo">
-  <div class="sec__cabeca">${kicker('01 · Passo a passo')}${linhas('Três passos|até a gira.')}</div>
+  <div class="sec__cabeca">${kicker('01 · Passo a passo')}${linhas('Como|visitar.')}</div>
   <ol class="passos__lista">${passos.map(([ic, tt, d], i) => `<li><span class="passos__n">0${i + 1}</span><span class="passos__ic">${icone(ic)}</span><h3>${tt}</h3><p>${d}</p></li>`).join('')}</ol>
 </section>
 
@@ -366,7 +366,7 @@ export function visite() {
   <div class="sec__cabeca">${kicker('02 · Antes de chegar')}${linhas('Perguntas|frequentes.')}</div>
   <div class="faq__lista">${perguntas.map(([q, a]) => `<details><summary>${q}<span class="faq__mais" aria-hidden="true"></span></summary><p>${a}</p></details>`).join('')}</div>
 </section>
-${ctaVisita('Que essa casa seja|encontro e abraço.')}
+${ctaVisita('Fale com|a casa.')}
 <a class="fixo-mobile" href="${site.instagram}" target="_blank" rel="noopener">${icone('ig')} Falar com a casa</a>`;
   return pagina({
     caminho: '/visite/', titulo: 'Como visitar a Casa de Umbanda de Xangô e Iemanjá | Méier, RJ',
