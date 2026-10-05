@@ -147,12 +147,12 @@
       const m = movel();
       intro.from('.hero__topo span', { yPercent: 120, opacity: 0, duration: 1.2, stagger: .035 }, m ? .5 : .1)
         .add(medalhaoEntra('.hero__foto'), m ? 0 : .15)
-        .from('.hero__nome .up', { yPercent: 110, duration: 1.3 }, m ? .7 : .45)
+        .from('.hero__nome .up', { yPercent: 150, duration: 1.3 }, m ? .7 : .45)
         .from('.selo', { scale: 0, rotate: -120, duration: 1.4 }, .9)
         .from('.hero__texto > *', { opacity: 0, y: 26, duration: 1, stagger: .08 }, .8)
         .from('.rolar', { opacity: 0, y: -20, duration: 1 }, 1.3);
     } else if ($('.phero')) {
-      intro.from('.phero__titulo .up', { yPercent: 110, duration: 1.3, stagger: .1 }, 0)
+      intro.from('.phero__titulo .up', { yPercent: 150, duration: 1.3, stagger: .1 }, 0)
         .from('.trilha, .phero .kicker, .phero__lede, .phero .hero__botoes', { opacity: 0, y: 20, duration: 1, stagger: .08 }, .2)
         .add(medalhaoEntra('.phero__arte'), .05)
         .from('.phero__marca', { opacity: 0, rotate: -25, scale: .9, duration: 2 }, 0);
@@ -378,7 +378,7 @@
 
   /* ---------- animações de rolagem ---------- */
   const st = (trigger, start = 'top 86%') => ({ trigger, start });
-  $$('main section:not(.hero):not(.phero) .h2').forEach(h => gsap.from($$('.up', h), { yPercent: 110, duration: 1.3, stagger: .1, ease: 'expo.out', scrollTrigger: st(h, 'top 88%') }));
+  $$('main section:not(.hero):not(.phero) .h2').forEach(h => gsap.from($$('.up', h), { yPercent: 150, duration: 1.3, stagger: .1, ease: 'expo.out', scrollTrigger: st(h, 'top 88%') }));
   $$('main section:not(.hero):not(.phero) .kicker').forEach(k => gsap.from(k, { opacity: 0, x: -24, duration: 1, ease: 'expo.out', scrollTrigger: st(k, 'top 92%') }));
   $$('[data-words]').forEach(el => {
     const claro = el.closest('.citacao');
