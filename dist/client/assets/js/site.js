@@ -16,7 +16,7 @@
   /* ---------- rolagem suave (só desktop com mouse) ---------- */
   let lenis = null;
   if (temGsap && !reduce && fine && typeof Lenis !== 'undefined') {
-    lenis = new Lenis({ lerp: .09, smoothWheel: true });
+    lenis = new Lenis({ lerp: .12, smoothWheel: true });
     lenis.on('scroll', ScrollTrigger.update);
     gsap.ticker.add(t => lenis.raf(t * 1000));
     gsap.ticker.lagSmoothing(0);
@@ -102,10 +102,10 @@
     sessionStorage.setItem('cuxi-portal', '1');
     gsap.set('.cortina__lema span', { opacity: 0 });
     gsap.timeline({ onComplete: () => location.href = url })
-      .fromTo(cortina, { clipPath: `circle(0px at ${x}px ${y}px)` }, { clipPath: `circle(${raio(x, y)}px at ${x}px ${y}px)`, duration: .85, ease: 'expo.inOut' })
-      .fromTo('.cortina__anel', { scale: 2.4, rotate: -90, opacity: 0 }, { scale: 1, rotate: 0, opacity: .8, duration: .8, ease: 'expo.out' }, .25)
-      .fromTo('.cortina__brasao', { opacity: 0, scale: .5, rotate: -90 }, { opacity: 1, scale: 1, rotate: 0, duration: .7, ease: 'expo.out' }, .3)
-      .to('main, .foot', { scale: .96, filter: 'blur(4px)', duration: .85, ease: 'expo.inOut' }, 0);
+      .fromTo(cortina, { clipPath: `circle(0px at ${x}px ${y}px)` }, { clipPath: `circle(${raio(x, y)}px at ${x}px ${y}px)`, duration: .5, ease: 'expo.inOut' })
+      .fromTo('.cortina__anel', { scale: 2.4, rotate: -90, opacity: 0 }, { scale: 1, rotate: 0, opacity: .8, duration: .5, ease: 'expo.out' }, .12)
+      .fromTo('.cortina__brasao', { opacity: 0, scale: .5, rotate: -90 }, { opacity: 1, scale: 1, rotate: 0, duration: .45, ease: 'expo.out' }, .15)
+      .to('main, .foot', { scale: .97, duration: .5, ease: 'expo.inOut' }, 0);
   };
   $$('a[href]').forEach(a => a.addEventListener('click', e => {
     const h = a.getAttribute('href');
@@ -177,6 +177,8 @@
         .to('.cortina__anel', { rotate: 90, duration: 2.4, ease: 'power2.inOut' }, 0)
         .to({}, { duration: .35 });
     } else gsap.set(['.cortina__brasao', '.cortina__anel'], { opacity: 1 });
+    tl.timeScale(primeira ? 1.9 : 2.6);
+    intro.timeScale(1.35);
     tl.to('.cortina__lema span', { opacity: 0, duration: .3, stagger: { each: .01, from: 'edges' } })
       .to('.cortina__anel', { scale: .32, opacity: 0, duration: .9, ease: 'expo.inOut' }, '<')
       .to('.cortina__brasao', { scale: .4, opacity: 0, duration: .8, ease: 'expo.inOut' }, '<')
@@ -191,9 +193,13 @@
     const num = $('#latNum'), tot = $('#latTot'), nome = $('#latNome'), [cima, baixo] = $$('.lateral__seta', lateral);
     tot.textContent = String(secoes.length).padStart(2, '0');
     let atual = 0;
+    let fins = [];
+    const mede = () => { fins = secoes.map(s => s.getBoundingClientRect().bottom + scrollY); };
+    mede(); addEventListener('resize', mede); addEventListener('load', mede);
+    if (typeof ResizeObserver !== 'undefined') new ResizeObserver(mede).observe(document.body);
     const marca = () => {
-      const meio = innerHeight * .45;
-      let i = secoes.findIndex(s => s.getBoundingClientRect().bottom > meio); if (i < 0) i = secoes.length - 1;
+      const meio = scrollY + innerHeight * .45;
+      let i = fins.findIndex(b => b > meio); if (i < 0) i = secoes.length - 1;
       lateral.classList.toggle('is-on', scrollY > innerHeight * .5);
       if (i === atual && nome.textContent) return; atual = i;
       num.textContent = String(i + 1).padStart(2, '0');
@@ -211,8 +217,10 @@
 
   /* ---------- marquee acelera com a rolagem ---------- */
   const trilhos = $$('.marquee__trilho');
+  const anims = new Map();
   if (lenis && trilhos.length) lenis.on('scroll', ({ velocity }) => trilhos.forEach(t => {
-    const a = t.getAnimations()[0]; if (a) a.playbackRate = (1 + Math.min(Math.abs(velocity) / 6, 5)) * (velocity < 0 ? -1 : 1);
+    let a = anims.get(t); if (!a) { a = t.getAnimations()[0]; a && anims.set(t, a); }
+    if (a) a.playbackRate = (1 + Math.min(Math.abs(velocity) / 6, 5)) * (velocity < 0 ? -1 : 1);
   }));
 
   /* ---------- filtros (reflexões e acervo) ---------- */
