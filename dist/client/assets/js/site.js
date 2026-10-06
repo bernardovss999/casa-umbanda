@@ -98,10 +98,11 @@
     menu && menu.classList.contains('is-open') && setMenu(false);
     sheet && sheet.classList.contains('is-open') && setSheet(false);
     if (!temGsap || reduce) { location.href = url; return; }
-    lenis && lenis.stop();
-    sessionStorage.setItem('cuxi-portal', '1');
-    gsap.set('.cortina__lema span', { opacity: 0 });
-    gsap.timeline({ onComplete: () => location.href = url })
+    // o link nunca pode ficar morto: se a animação travar ou o storage falhar, navega assim mesmo
+    let foi = false; const vai = () => { if (!foi) { foi = true; location.href = url; } };
+    setTimeout(vai, 900);
+    try { lenis && lenis.stop(); sessionStorage.setItem('cuxi-portal', '1'); gsap.set('.cortina__lema span', { opacity: 0 }); } catch (e) { return vai(); }
+    gsap.timeline({ onComplete: vai })
       .fromTo(cortina, { clipPath: `circle(0px at ${x}px ${y}px)` }, { clipPath: `circle(${raio(x, y)}px at ${x}px ${y}px)`, duration: .5, ease: 'expo.inOut' })
       .fromTo('.cortina__anel', { scale: 2.4, rotate: -90, opacity: 0 }, { scale: 1, rotate: 0, opacity: .8, duration: .5, ease: 'expo.out' }, .12)
       .fromTo('.cortina__brasao', { opacity: 0, scale: .5, rotate: -90 }, { opacity: 1, scale: 1, rotate: 0, duration: .45, ease: 'expo.out' }, .15)
@@ -164,8 +165,7 @@
 
     // abertura: um anel de ouro se desenha, o brasão aparece, o lema surge letra a letra
     // e o portal se fecha dentro do selo do cabeçalho, como se o site saísse do brasão
-    const primeira = !sessionStorage.getItem('cuxi');
-    sessionStorage.setItem('cuxi', '1');
+    let primeira = true; try { primeira = !sessionStorage.getItem('cuxi'); sessionStorage.setItem('cuxi', '1'); } catch (e) {}
     const selo = $('.nav__selo'), r = selo.getBoundingClientRect();
     const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
     gsap.set(cortina, { clipPath: `circle(${raio(cx, cy)}px at ${cx}px ${cy}px)` });
